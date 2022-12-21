@@ -18,7 +18,7 @@ export default function App () {
     }
 
     useEffect(() => {
-        todosGet(setYapilacaklar);
+        todosGet();
     }, [cek]);
 
     const [gizle, setGizle] = useState(false);
@@ -38,7 +38,7 @@ export default function App () {
     console.log(yapilacaklar);
     return (
       <div>
-        <TodoList yapilacaklar={yapilacaklar} setYapilacaklar={setYapilacaklar} gizle={gizle}/>
+        <TodoList yapilacaklar={yapilacaklar} setYapilacaklar={setYapilacaklar} gizle={gizle} todosGet={todosGet}/>
         <Form yapilacaklar={yapilacaklar} setYapilacaklar={setYapilacaklar} todosGet={todosGet} />
         <button value="gizle" onClick={()=>setGizle(!gizle)}>
           {

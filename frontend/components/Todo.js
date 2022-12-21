@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios';
 
 export default function Todo(props) {
-  const {yapilacak,yapilacaklar,setYapilacaklar, gizle} = props
+  const {yapilacak,yapilacaklar,setYapilacaklar, gizle, todosGet} = props
   
   const todosPatch = () => {
         axios
@@ -10,14 +10,7 @@ export default function Todo(props) {
         tamamlandi: !(yapilacak.tamamlandi),
         })
         .then(() => {
-            let arr= yapilacaklar.map( y => {
-                if(y.id === yapilacak.id ){
-                y.tamamlandi=!(y.tamamlandi);
-                return y;
-                }
-                return y;
-            });
-            setYapilacaklar(arr);
+            todosGet();
         }); 
     }
   const handleClick = () => {
