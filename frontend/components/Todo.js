@@ -7,7 +7,7 @@ export default function Todo(props) {
   const todosPatch = () => {
         axios
         .patch(`http://localhost:9000/api/todos/${yapilacak.id}`, {
-        tamamlandi: true,
+        tamamlandi: !(yapilacak.tamamlandi),
         })
         .then(() => {
             let arr= yapilacaklar.map( y => {
